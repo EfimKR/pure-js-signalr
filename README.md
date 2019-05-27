@@ -12,8 +12,11 @@ This package is not meant to be used with ASP.NET Core version of SignalR.
 
 // create hub connection
 var connection = hubConnection();
+
 connection.qs = { 'version': '1.0' };
+
 connection.url = url;
+
 hubProxy = connection.createHubProxy('hubProxy');
 
 // add event listeners
@@ -23,5 +26,7 @@ hubProxy.on('event', function(data) {
 
 // create connection
 connection.start()
-    .done(function(response){ handleResponse(response) })
-    .fail(function(error){ handleError(error) });
+
+   .done(function(response){ handleResponse(response) })
+    
+   .fail(function(error){ handleError(error) });
